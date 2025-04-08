@@ -1,0 +1,111 @@
+<% layout("/layout/bolierpalate.ejs") -%>
+<div class="rows">
+    <div class="col-8 offset-2">
+        <h1>Create NEW LIST</h1>
+        <form method="post" class="needs-validation"  novalidate action="/listings/new" enctype="multipart/form-data">
+
+            
+            <div class="mb-3">
+                <label for="title" class="form-label">Title</label>
+                <input type="text" class="form-control" required name="title" placeholder="Title">
+                <div class="invalid-feedback">
+                    Please provide a valid Title.
+                </div>
+                
+            </div>
+            <div class="mb-3">
+                <label for="description" class="form-label">Description</label>
+                <textarea type="text" class="form-control" required name="description" placeholder="description"></textarea>
+                <div class="invalid-feedback">
+                    Please enter a valid discription.
+                  </div>
+
+            </div>
+            <div class="mb-3">
+                <label for="image.url" class="form-label">Upload images </label>
+                <input type="file" id="image" class="form-control" name="images"  multiple >
+            </div>
+            <div class="mb-3">
+                <div id="preview" style="display: flex; gap: 10px;"></div>
+            </div>
+            <div class="row">
+                <div class="mb-3 col-md-4">
+                    <label for="price" class="form-label">Price</label>
+                    <input type="number" class="form-control" required name="price" placeholder="Price">
+                    <div class="invalid-feedback">
+                        Please provide a valid price.
+                      </div>
+
+                </div>
+                <div class="mb-3 col-md-8">
+                    <label for="country" class="form-label">Country</label>
+                    <input type="text" class="form-control" required name="country" placeholder="Country">
+                    <div class="invalid-feedback">
+                        Please provide a valid country name.
+                      </div>
+                </div>
+                <style>
+                    .btn-group{
+                        width: 100%;
+                    }
+                    
+                    .select-item{
+                        width: auto;
+                        object-fit: cover;
+                        border: none;
+                        padding: none;
+                    }
+                    
+                    
+                </style>
+                <div class="mb-3 col-md-12">
+                    <label for="filter" class="form-label">Property Category</label>
+                    <div class="dropdown ">
+                        <div class="btn-group from-control">
+                            <input  id="filter-input" type="text" class="form-control " required placeholder="Selected items will appear here"> 
+                            <select class="select-item " id="item-select">
+                                <option value="none">Select the option</option>
+                                    <option value="trending" id="add-Item"  class="dropdown-item">Trending</option>
+                                    <option value="room" id="add-Item"  class="dropdown-item" >Rooms</option>
+                                    <option value="iconiccities" id="add-Item"  class="dropdown-item" >Iconic Cities</option>
+                                    <option value="amazingpools" id="add-Item"  class="dropdown-item" >Amazaing Pools</option>
+                                    <option value="camping" id="add-Item"  class="dropdown-item" >Camping</option>
+                                    <option value="farms" id="add-Item"  class="dropdown-item" >Farms</option>
+                                    <option value="artic" id="add-Item"  class="dropdown-item" >Artic</option>
+                                    <option value="beach" id="add-Item"  class="dropdown-item" >Beach</option>
+                                    <option value="desert" id="add-Item"  class="dropdown-item" >Desert</option>
+                                    <option value="surfing" id="add-Item"  class="dropdown-item" >Surfing</option>
+                                    <option value="campervans" id="add-Item"  class="dropdown-item" >Camper Vans</option>
+                                    <option value="caves" id="add-Item"  class="dropdown-item" >Caves</option>
+                                    <option value="island" id="add-Item"  class="dropdown-item" >Island</option>
+                                    <option value="castles" id="add-Item"  class="dropdown-item" >Castles</option>
+                            </select>      
+                                                   
+                        </div>             
+                    </div>
+                    <div class="invalid-feedback">
+                        Please provide a valid location.
+                    </div> 
+                </div>                
+            </div>
+            
+            <div class="mb-3">
+                <label for="location" class="form-label">Location</label>
+                <input type="text" class="form-control" required name="location" placeholder="Location">
+                <div class="invalid-feedback">
+                    Please provide a valid location.
+                  </div>
+            </div>
+            </div>
+
+            
+            <div class="mb-3">
+                <button class="sub-btn" type="submit" class="btn btn-dark">Submit</button>
+            </div>
+        </form>
+    </div>
+</div>
+    
+<script>
+   
+</script>

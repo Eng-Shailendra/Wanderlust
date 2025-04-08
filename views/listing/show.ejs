@@ -1,0 +1,138 @@
+<% layout("/layout/bolierpalate.ejs") -%>
+
+
+<div class="row mt-3">
+    <div class="col-8 offset-2">
+        <h2 ><%=listings.title %></h2>
+    </div>
+    <div class="col-8 offset-2">
+        
+        <div class="card">
+            <div id="carousel-fade" class="carousel slide carousel-fade" data-bs-ride="carousel">
+                <div class="carousel-inner show-img mb-3">
+                    <% listings.images.forEach((imageslist, index) => { %>
+                        <div class="carousel-item <%= index === 0 ? 'active' : '' %>">
+                            <img src="<%= imageslist.url %>" class="d-block w-100" alt="Image <%= index + 1 %>">
+                        </div>
+                    <% }) %>
+                </div>
+                <button class="carousel-control-prev" type="button" data-bs-target="#carousel-fade" data-bs-slide="prev">
+                    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                    <span class="visually-hidden">Previous</span>
+                  </button>
+                  <button class="carousel-control-next" type="button" data-bs-target="#carousel-fade" data-bs-slide="next">
+                    <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                    <span class="visually-hidden">Next</span>
+                  </button>
+            </div>
+          <div class="card-body">
+            <div class="card-text">
+                <p>Owned by -- <b> <%= listings.owner.username  %></b></p>
+                <p> <%=listings.description %></p>
+                <p> &#x20B9 <%=listings.price.toLocaleString('en-IN') %> </p>
+                <p> <%=listings.location %></p>
+                <p>  <%=listings.country %></p>
+            </p>
+          </div>
+        </div>
+    </div>
+
+    <div class="btn col-6 offset-3 show-btn">
+        <% if(cuUser && cuUser._id.equals(listings.owner._id)){ %>
+        <div class=" btn ">
+            <a href="/listings/<%=listings._id%>/edit"><button class="sub-btn" type="button">Edit</button></a>
+        </div>
+        <div class="btn">
+            <a href="/listings/<%= listings._id %>/delete"><button class="sub-btn">Delete</button></a>
+        </div>
+    <% } %>
+    </div>
+    
+<!-- review form  -->
+    <div class="col-8 offset-2 ">
+       
+        <% if(cuUser){ %>
+        <hr>
+        <h4>Leave a Review</h4>
+        <form method="post" action="/listings/<%= listings._id %>/reviews" novalidate  class="needs-validation" >
+            <div>
+                <fieldset class="starability-slot">
+                    <legend>First rating:</legend>
+                    <input type="radio" id="no-rate" class="input-no-rate" name="rating" value="0" checked aria-label="No rating." />
+                    <input type="radio" id="first-rate1" name="rating" value="1" />
+                    <label for="first-rate1" title="Terrible">1 star</label>
+                    <input type="radio" id="first-rate2" name="rating" value="2" />
+                    <label for="first-rate2" title="Not good">2 stars</label>
+                    <input type="radio" id="first-rate3" name="rating" value="3" />
+                    <label for="first-rate3" title="Average">3 stars</label>
+                    <input type="radio" id="first-rate4" name="rating" value="4" />
+                    <label for="first-rate4" title="Very good">4 stars</label>
+                    <input type="radio" id="first-rate5" name="rating" value="5" />
+                    <label for="first-rate5" title="Amazing">5 stars</label>
+                </fieldset>
+            </div>
+            <div class="mb-3">
+                <label for="comment" class="form-label">Comments</label>
+                <textarea name="comment" id="comment" class="form-control" required col="30" rows="4"></textarea>
+                <div class="invalid-feedback"> Please enter some message</div>
+            </div>
+            <button class="sub-btn  mb-3">Submit</button>
+        </form>
+        <% } %>
+        
+        <% if (listings.reviews.length>0){ %>
+        <div>
+            <hr>
+            <h2>All Reviews</h2>
+            <div class="row">
+                <% for(let review of listings.reviews){ %>
+                <div class="card col-6 ">
+                    <div class="card-body reviewcard mb-3">
+                        <h5 class="card-title">@<%= review.author.username %></h5>
+                        <p class="starability-result card-text" data-rating="<%= review.rating  %>"></p>
+                        <p class="card-text"><%= review.comment  %>  </p>
+
+                        <div class="ms-2 mb-3">
+                            <form method="post" action="/listings/<%=listings._id %>/reviews/<%=review._id%>?_method=DELETE">
+                                 <% if(cuUser){ %>
+                                <button class="btn sub-btn btn-dark">Delete</button>
+                                <% } %>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+                <% } %>
+            </div>           
+        </div>
+        <% } %>
+    </div>
+
+    <style>
+        .map{
+            width: 750px;
+        }
+    </style>
+    <div class="col-8  mb-3">
+        <h3>Where you'll be</h3>
+        <div class="map">
+            <!-- <gmp-map center="37.4220656,-122.0840897" zoom="10" map-id="DEMO_MAP_ID" style="height: 400px"></gmp-map> -->
+            <gmp-map
+                center="28.644800, 77.216721"
+                    zoom="8"
+                map-id="wonderlust-441911"
+                style="height: 400px"
+                options='{"disableDefaultUI": true}'
+            >
+            <gmp-advanced-marker
+            position="37.4220656,-122.0840897"
+            title="Mountain View, CA"
+            ></gmp-advanced-marker>
+            <gmp-advanced-marker
+            position="47.648994,-122.3503845"
+            title="Seattle, WA"
+            ></gmp-advanced-marker>
+            </gmp-map>
+        </div>
+      </div>      
+</div>
+

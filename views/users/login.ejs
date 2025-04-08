@@ -1,0 +1,22 @@
+<% layout("layout/bolierpalate.ejs") -%>
+<div class="row mt-3">
+    <div class="col-6 offset-3">
+      <h1>Login on Wonder Lust</h1>
+        <form method="post" action="/login" class="needs-validation" novalidate >
+            <div class="mb-3">
+                <label for="username" class="form-label">Name</label>
+                <input type="text" class="form-control" required id="username" name="username"  placeholder="Enter your name">
+                <div class="invalid-feedback">
+                  Please enter your username  
+                </div>
+              </div>
+              
+              <div class="mb-3">
+                <label for="password" class="form-label">Password</label>
+                <input type="text" class="form-control"  id="password" name="password"  placeholder="Password">
+                
+              </div>
+              <button class="btn btn-dark submit-btn">Login</button>
+        </form>
+    </div>
+</div>

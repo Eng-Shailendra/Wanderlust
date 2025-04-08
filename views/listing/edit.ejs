@@ -1,0 +1,66 @@
+<% layout("/layout/bolierpalate.ejs") -%>
+<div class="rows">
+    <div class="col-8 offset-2">
+        <h1>EDIT LIST</h1>
+        <form method="POST" class="needs-validation" novalidate action="/listings/<%=edit._id%>/edit?_method=PUT" enctype="multipart/form-data"  >
+            <div>
+            <div class="mb-3">
+                <label for="title" class="form-label">Title</label>
+                <input type="text" name="title" required value="<%=edit.title%>" class="form-control">
+                <div class="invalid-feedback">
+                    Please provide a valid title.
+                  </div>
+            </div>
+            <div class="mb-3">
+                <label for="description" class="form-label">Description</label>
+                <textarea class="form-control" type="text" required name="description" value="<%=edit.description%>"><%=edit.description%></textarea>
+                <div class="invalid-feedback">
+                    Please provide a valid description.
+                  </div>
+            </div>
+            <div class="mb-3">
+                <h6 class="card-text">Orignal Listing image</h6>
+                <div class=" inline-card" style=" width: 50%;">
+                    <% edit.images.forEach((e_list, index) => {%>
+                        <img src="<%= e_list.url %>" alt="preview image">
+                   <%  }); %>
+                </div>
+            </div>
+            <div class="mb-3">
+                <label for="image.url" class="form-label">Upload New image</label>
+                <input class="form-control" type="file" multiple name="images">
+
+            </div>
+            <div class="row">
+                <div class="mb-3 col-md-4">
+                    <label for="price" class="form-label">Price</label>
+                    <input class="form-control" type="number" required name="price" value="<%=edit.price%>">
+                    <div class="invalid-feedback">
+                        Please provide a valid price.
+                      </div>
+                </div>
+                <div class="mb-3 col-md-8">
+                    <label for="country" class="form-label">Country</label>
+                    <input class="form-control" type="text" required name="country" value="<%=edit.country%>">
+                    <div class="invalid-feedback">
+                        Please provide a valid country.
+                      </div>
+                </div>
+            </div>
+            
+            <div class="mb-3">
+                <label for="location" class="form-label">Location</label>
+                <input class="form-control" type="text" required name="location" value="<%=edit.location%>">
+                <div class="invalid-feedback">
+                    Please provide a valid location.
+                  </div>
+            </div>
+            
+            <div class="mb-3">
+                <button class="sub-btn" type="submit" class="btn btn-dark">Edit</button>
+            </div>
+
+        </div>
+        </form>
+    </div>
+</div>
