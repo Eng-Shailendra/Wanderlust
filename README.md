@@ -50,7 +50,10 @@ SECRET=your_session_secret
    node app.js
    ```
 ## 📸 Screenshots
-![Homepage](screenshots/screenshots(33).png)
+![Homepage](screenshots/homepage.png)
+![Homepage](screenshots/showtaxes.png)
+![Signup page](screenshots/signup.png)
+![Login page](screenshots/loginpage.png)
 
 
 ## 📁 Project Structure
