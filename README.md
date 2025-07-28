@@ -1,22 +1,22 @@
-# 🌍 Wanderlust
+#  Wanderlust
 
 Wanderlust is a full-stack web application for exploring, creating, and reviewing travel destinations and stays — inspired by platforms like Airbnb. Built with Node.js, Express, MongoDB, and EJS.
 
 ---
 
-## 🚀 Features
+##  Features
 
-- 📝 User authentication and authorization
-- 🗺️ Add, edit, and delete travel listings
-- 🌟 Review and rate listings
-- 📷 Image uploads via Cloudinary
-- 📂 Secure file handling with `.env` support
-- 🎨 Clean and responsive UI with EJS templating
-- 🛡️ Robust server-side validation and error handling
+-  User authentication and authorization
+-  Add, edit, and delete travel listings
+-  Review and rate listings
+-  Image uploads via Cloudinary
+-  Secure file handling with `.env` support
+-  Clean and responsive UI with EJS templating
+-  Robust server-side validation and error handling
 
 ---
 
-## 🛠️ Tech Stack
+##  Tech Stack
 
 - **Backend:** Node.js, Express
 - **Database:** MongoDB with Mongoose
@@ -28,7 +28,7 @@ Wanderlust is a full-stack web application for exploring, creating, and reviewin
 
 ---
 
-## 📦 Installation
+##  Installation
 
 1. Clone the repository:
 
@@ -49,7 +49,7 @@ SECRET=your_session_secret
    ```
    node app.js
    ```
-## 📸 Screenshots
+##  Screenshots
 ![Homepage](screenshots/homepage.png)
 ![Homepage](screenshots/showtaxes.png)
 ![Signup page](screenshots/signup.png)
@@ -71,13 +71,13 @@ Wanderlust/
 └── .env (not committed)
 ```
 
-## 🤝 Contributing
+##  Contributing
 Pull requests are welcome! For major changes, please open an issue first to discuss what you’d like to change.
 
-## 📄 License
+##  License
 MIT License
 
-## 👨‍💻 Author
+##  Author
 Shailendra Kumar Sahu
 
 ```
